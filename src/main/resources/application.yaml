@@ -1,0 +1,12 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: HWSpring6RNM
+
+links:
+  characterApi: "https://rickandmortyapi.com/api/character"
+  locationApi: "https://rickandmortyapi.com/api/location"
+  episodeApi: "https://rickandmortyapi.com/api/episode"
+
