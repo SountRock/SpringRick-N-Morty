@@ -3,9 +3,51 @@
 <link th:href="@{/style.css}" rel="stylesheet"/>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Episodes</title>
 </head>
 <body>
+<div class="box" th:each="res : ${results}">
+    <div class="edit">
+        <label th:text="'ID: ' + ${res.id}">ID</label>
+    </div>
+    <br/>
 
+    <div class="edit">
+        <label th:text="'name: ' + ${res.name}"></label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label th:text="'air date: ' + ${res.air_date}"></label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label th:text="'episode: ' + ${res.episode}"></label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <a th:href="@{/episodes/one(href=${res.url})}" th:text="URL"></a>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label type="date" th:text="'created: ' + ${res.created}"></label>
+    </div>
+    <br/>
+
+    <div class="switcher">
+        <form th:action="@{/episodes/next}" th:if="${next}">
+            <button type="submit" th:text="next"></button>
+        </form>
+        <form th:action="@{/episodes/prev}" th:if="${prev}">
+            <button type="submit" th:text="prev"></button>
+        </form>
+        <form th:action="@{/}">
+            <button type="submit" th:text="main"></button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

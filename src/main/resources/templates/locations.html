@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link th:href="@{/style.css}" rel="stylesheet"/>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Locations</title>
 </head>
 <body>
+<div class="box" th:each="res : ${results}">
+    <div class="edit">
+        <label th:text="'ID: ' + ${res.id}">ID</label>
+    </div>
+    <br/>
 
+    <div class="edit">
+        <label th:text="'name: ' + ${res.name}"></label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label th:text="'type: ' + ${res.type}"></label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label th:text="'dimension: ' + ${res.dimension}"></label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <a th:href="@{/locations/one(href=${res.url})}" th:text="URL"></a>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label type="date" th:text="'created: ' + ${res.created}"></label>
+    </div>
+    <br/>
+
+    <div class="edit" th:each="resident, iStat : ${res.residents}">
+        <a th:href="@{/characters/one(href=${resident})}" th:text="'resident ' + ${iStat.index + 1}"></a>
+    </div>
+
+    <div class="switcher">
+        <form th:action="@{/characters/next}" th:if="${next}">
+            <button type="submit" th:text="next"></button>
+        </form>
+        <form th:action="@{/characters/prev}" th:if="${prev}">
+            <button type="submit" th:text="prev"></button>
+        </form>
+        <form th:action="@{/}">
+            <button type="submit" th:text="main"></button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

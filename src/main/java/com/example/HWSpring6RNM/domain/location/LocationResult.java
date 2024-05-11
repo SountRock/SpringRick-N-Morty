@@ -14,7 +14,7 @@ public class LocationResult {
     String name;
     String type;
     String dimension;
-    List<Object> residents;
+    List<String> residents;
     String url;
     Date created;
 }

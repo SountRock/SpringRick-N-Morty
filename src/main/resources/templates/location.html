@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<link th:href="@{/style.css}" rel="stylesheet"/>
+<head>
+    <meta charset="UTF-8">
+    <title>Episodes</title>
+</head>
+<body>
+<div class="box">
+    <div class="edit">
+        <label th:text="'ID: ' + ${one.id}">ID</label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label th:text="'name: ' + ${one.name}"></label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label th:text="'type: ' + ${one.type}"></label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label th:text="'dimension: ' + ${one.dimension}"></label>
+    </div>
+    <br/>
+
+    <div class="edit">
+        <label type="date" th:text="'created: ' + ${one.created}"></label>
+    </div>
+    <br/>
+
+    <div class="edit" th:each="resident, iStat : ${one.residents}">
+        <a th:href="@{/characters/one(href=${resident})}" th:text="'resident ' + ${iStat.index + 1}"></a>
+    </div>
+</div>
+
+<div class="switcher">
+    <form th:action="@{/locations}">
+        <button type="submit" th:text="locations"></button>
+    </form>
+</div>
+<div class="switcher">
+    <form th:action="@{/}">
+        <button type="submit" th:text="main"></button>
+    </form>
+</div>
+</body>
+</html>
