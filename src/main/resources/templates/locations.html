@@ -40,18 +40,17 @@
     <div class="edit" th:each="resident, iStat : ${res.residents}">
         <a th:href="@{/characters/one(href=${resident})}" th:text="'resident ' + ${iStat.index + 1}"></a>
     </div>
-
-    <div class="switcher">
-        <form th:action="@{/characters/next}" th:if="${next}">
-            <button type="submit" th:text="next"></button>
-        </form>
-        <form th:action="@{/characters/prev}" th:if="${prev}">
-            <button type="submit" th:text="prev"></button>
-        </form>
-        <form th:action="@{/}">
-            <button type="submit" th:text="main"></button>
-        </form>
-    </div>
+</div>
+<div class="switcher">
+    <form th:action="@{/characters/next}" th:if="${next}">
+        <button type="submit" th:text="next"></button>
+    </form>
+    <form th:action="@{/characters/prev}" th:if="${prev}">
+        <button type="submit" th:text="prev"></button>
+    </form>
+    <form th:action="@{/}">
+        <button type="submit" th:text="main"></button>
+    </form>
 </div>
 </body>
 </html>

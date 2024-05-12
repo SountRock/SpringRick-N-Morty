@@ -36,18 +36,17 @@
         <label type="date" th:text="'created: ' + ${res.created}"></label>
     </div>
     <br/>
-
-    <div class="switcher">
-        <form th:action="@{/episodes/next}" th:if="${next}">
-            <button type="submit" th:text="next"></button>
-        </form>
-        <form th:action="@{/episodes/prev}" th:if="${prev}">
-            <button type="submit" th:text="prev"></button>
-        </form>
-        <form th:action="@{/}">
-            <button type="submit" th:text="main"></button>
-        </form>
-    </div>
+</div>
+<div class="switcher">
+    <form th:action="@{/episodes/next}" th:if="${next}">
+        <button type="submit" th:text="next"></button>
+    </form>
+    <form th:action="@{/episodes/prev}" th:if="${prev}">
+        <button type="submit" th:text="prev"></button>
+    </form>
+    <form th:action="@{/}">
+        <button type="submit" th:text="main"></button>
+    </form>
 </div>
 </body>
 </html>
