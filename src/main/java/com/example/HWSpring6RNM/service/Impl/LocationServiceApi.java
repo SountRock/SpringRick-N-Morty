@@ -77,6 +77,7 @@ public class LocationServiceApi implements ServiceApiI {
         }
     }
 
+    @Override
     public LocationResult getOne(String href) {
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<>(headers);

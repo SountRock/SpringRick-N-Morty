@@ -42,10 +42,10 @@
     </div>
 </div>
 <div class="switcher">
-    <form th:action="@{/characters/next}" th:if="${next}">
+    <form th:action="@{/locations/next}" th:if="${next}">
         <button type="submit" th:text="next"></button>
     </form>
-    <form th:action="@{/characters/prev}" th:if="${prev}">
+    <form th:action="@{/locations/prev}" th:if="${prev}">
         <button type="submit" th:text="prev"></button>
     </form>
     <form th:action="@{/}">

@@ -1,24 +1,26 @@
 package com.example.HWSpring6RNM.service;
 
 import com.example.HWSpring6RNM.domain.ModelsListI;
+import com.example.HWSpring6RNM.domain.ResultI;
+import com.example.HWSpring6RNM.domain.character.CharacterResult;
 import com.example.HWSpring6RNM.service.Impl.CharacterServiceApi;
 
 public interface ServiceApiI {
     /**
      * Перейти в начало
-     * @return result
+     * @return results
      */
     ModelsListI getAllMain();
 
     /**
      * Перейти в на следующую страницу
-     * @return result
+     * @return results
      */
     ModelsListI getNextAll();
 
     /**
      * Перейти в на предыдущую страницу
-     * @return result
+     * @return results
      */
     ModelsListI getPrevAll();
 
@@ -49,4 +51,11 @@ public interface ServiceApiI {
      * @return
      */
     String getServiceName();
+
+    /**
+     * Получить один результат по ссылке
+     * @param href
+     * @return result
+     */
+    ResultI getOne(String href);
 }

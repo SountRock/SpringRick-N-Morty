@@ -15,11 +15,12 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/characters")
-public class CharacterControllerHTML {
+public class CharacterControllerHTML implements ControllersHTMLI{
     @Autowired
     private CharacterServiceApi characterS;
 
     @GetMapping
+    @Override
     public String getMainPage(Model model){
         Characters domain = characterS.getAllMain();
         if(domain == null) {
@@ -38,6 +39,7 @@ public class CharacterControllerHTML {
     }
 
     @GetMapping("/next")
+    @Override
     public String getNextPage(Model model){
         Characters domain = characterS.getNextAll();
         if(domain == null) {
@@ -56,6 +58,7 @@ public class CharacterControllerHTML {
     }
 
     @GetMapping("/prev")
+    @Override
     public String getNextPrev(Model model){
         Characters domain = characterS.getPrevAll();
         if(domain == null) {
@@ -74,6 +77,7 @@ public class CharacterControllerHTML {
     }
 
     @GetMapping("/one")
+    @Override
     public String getOne(@PathParam("href") String href, Model model){
         CharacterResult result = characterS.getOne(href);
         model.addAttribute("one", result);

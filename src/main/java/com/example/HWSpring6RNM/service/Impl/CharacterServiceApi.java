@@ -73,6 +73,7 @@ public class CharacterServiceApi implements ServiceApiI {
         }
     }
 
+    @Override
     public CharacterResult getOne(String href) {
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<>(headers);

@@ -77,6 +77,7 @@ public class EpisodeServiceApi implements ServiceApiI {
         }
     }
 
+    @Override
     public EpisodeResult getOne(String href) {
         headers.setAccept(List.of(MediaType.APPLICATION_JSON));
         HttpEntity<String> entity = new HttpEntity<>(headers);

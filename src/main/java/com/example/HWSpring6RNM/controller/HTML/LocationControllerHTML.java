@@ -15,11 +15,12 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/locations")
-public class LocationControllerHTML {
+public class LocationControllerHTML implements ControllersHTMLI{
     @Autowired
     private LocationServiceApi locationS;
 
     @GetMapping
+    @Override
     public String getMainPage(Model model){
         Locations domain = locationS.getAllMain();
         if(domain == null) {
@@ -38,6 +39,7 @@ public class LocationControllerHTML {
     }
 
     @GetMapping("/next")
+    @Override
     public String getNextPage(Model model){
         Locations domain = locationS.getNextAll();
         if(domain == null) {
@@ -56,6 +58,7 @@ public class LocationControllerHTML {
     }
 
     @GetMapping("/prev")
+    @Override
     public String getNextPrev(Model model){
         Locations domain = locationS.getPrevAll();
         if(domain == null) {
@@ -74,6 +77,7 @@ public class LocationControllerHTML {
     }
 
     @GetMapping("/one")
+    @Override
     public String getOne(@PathParam("href") String href, Model model){
         LocationResult result = locationS.getOne(href);
         model.addAttribute("one", result);

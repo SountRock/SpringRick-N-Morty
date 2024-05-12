@@ -15,11 +15,12 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/episodes")
-public class EpisodesControllerHTML {
+public class EpisodesControllerHTML implements ControllersHTMLI{
     @Autowired
     private EpisodeServiceApi episodeS;
 
     @GetMapping
+    @Override
     public String getMainPage(Model model){
         Episodes domain = episodeS.getAllMain();
         if(domain == null) {
@@ -38,6 +39,7 @@ public class EpisodesControllerHTML {
     }
 
     @GetMapping("/next")
+    @Override
     public String getNextPage(Model model){
         Episodes domain = episodeS.getNextAll();
         if(domain == null) {
@@ -56,6 +58,7 @@ public class EpisodesControllerHTML {
     }
 
     @GetMapping("/prev")
+    @Override
     public String getNextPrev(Model model){
         Episodes domain = episodeS.getPrevAll();
         if(domain == null) {
@@ -74,6 +77,7 @@ public class EpisodesControllerHTML {
     }
 
     @GetMapping("/one")
+    @Override
     public String getOne(@PathParam("href") String href, Model model){
         EpisodeResult result = episodeS.getOne(href);
         model.addAttribute("one", result);
